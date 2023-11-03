@@ -18,5 +18,11 @@ export default defineConfig({
       reporter: ['text-summary', 'html', 'lcov'],
       statements: 100
     }
+  },
+  resolve: {
+    alias: {
+      '@': 'src',
+      '~': 'test'
+    }
   }
 })
