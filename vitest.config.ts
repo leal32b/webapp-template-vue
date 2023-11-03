@@ -12,6 +12,7 @@ export default defineConfig({
     logHeapUsage: false,
     passWithNoTests: true,
     coverage: {
+      all: true,
       include: ['src/**/*.ts'],
       exclude: [],
       provider: 'istanbul',
