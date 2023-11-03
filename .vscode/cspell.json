@@ -1,0 +1,12 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    ".vscode",
+    "node_modules",
+    "package-lock.json",
+    "package.json"
+  ],
+  "words": [
+    "Vite"
+  ]
+}
