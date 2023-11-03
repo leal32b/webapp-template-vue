@@ -2,6 +2,10 @@
   "name": "webapp-template-vue",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "^18.16.1",
+    "npm": "^9.5.1"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
