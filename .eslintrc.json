@@ -22,7 +22,7 @@
     }]
   },
   "overrides": [{
-    "files": ["src/**/*.ts"],
+    "files": ["{src,test}/**/*.ts"],
     "extends": ["standard-with-typescript"]
   }],
   "ignorePatterns": [
