@@ -17,5 +17,9 @@
   "overrides": [{
     "files": ["src/**/*.ts"],
     "extends": ["standard-with-typescript"]
-  }]
+  }],
+  "ignorePatterns": [
+    "dist",
+    "node_modules"
+  ]
 }
