@@ -1,6 +1,13 @@
 /// <reference types="vitest" />
+
+//@ts-ignore
+import {resolve} from 'path'
+
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
+
+//@ts-ignore
+const root = resolve(__dirname)
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +18,7 @@ export default defineConfig({
     globals: true,
     include: ['test/**/*.{integration,unit}-test.ts'],
     exclude: ['test/**/_doubles/**'],
-    threads: false,
+    pool: 'vmThreads',
     watch: false,
     silent: true,
     logHeapUsage: false,
@@ -19,16 +26,21 @@ export default defineConfig({
     coverage: {
       all: true,
       include: ['src/**/*.{ts,vue}'],
-      exclude: [],
+      exclude: [
+        'src/App.vue',
+        'src/main.ts'
+      ],
       provider: 'istanbul',
       reporter: ['text-summary', 'html', 'lcov'],
-      statements: 100
+      thresholds: {
+        statements: 100
+      }
     }
   },
   resolve: {
     alias: {
-      '@': 'src',
-      '~': 'test'
+      '@': resolve(root, 'src'),
+      '~': resolve(root, 'test')
     }
   }
 })

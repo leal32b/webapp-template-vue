@@ -23,7 +23,10 @@
   },
   "overrides": [{
     "files": ["{src,test}/**/*.ts"],
-    "extends": ["standard-with-typescript"]
+    "extends": ["standard-with-typescript"],
+    "rules": {
+      "@typescript-eslint/no-unsafe-argument": "off"
+    }
   }],
   "ignorePatterns": [
     "coverage",

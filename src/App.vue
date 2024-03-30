@@ -1,29 +1,31 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import AppNavbar from '@/components/app-navbar.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
+    AppNavbar,
     HelloWorld
   }
 })
 </script>
 
 <template>
-  <div class="app-container off-canvas off-canvas-sidebar-show">
-    <Navbar></Navbar>
-    <Sidebar></Sidebar>
-    <a class="off-canvas-overlay" href="#close"></a>
-    <div class="off-canvas-content">
-      <HelloWorld msg="Hello World!"></HelloWorld>
-    </div>
+  <AppNavbar></AppNavbar>
+  <!-- <Sidebar></Sidebar> -->
+  <div class="container">
+    <HelloWorld msg="Hello World!"></HelloWorld>
   </div>
 </template>
 
 <style>
-#app {
-  min-height: 100vh;
-}
+  #app {
+    min-height: 100vh;
+  }
+  .container {
+    margin-top: 5rem;
+  }
 </style>

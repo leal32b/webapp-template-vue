@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 
-import '@primer/css/base/index.scss'
-import AppVue from './App.vue'
+import '@/style.scss'
+import AppVue from '@/app.vue'
+import { setIcons } from '@/components/set-icons'
 
-createApp(AppVue).mount('#app')
+const appVue = createApp(AppVue)
+setIcons(appVue)
+appVue.mount('#app')
