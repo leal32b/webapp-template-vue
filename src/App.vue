@@ -2,13 +2,11 @@
 import { defineComponent } from 'vue'
 
 import AppNavbar from '@/components/app-navbar.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     AppNavbar,
-    HelloWorld
   }
 })
 </script>
@@ -17,7 +15,7 @@ export default defineComponent({
   <AppNavbar></AppNavbar>
   <!-- <Sidebar></Sidebar> -->
   <div class="container">
-    <HelloWorld msg="Hello World!"></HelloWorld>
+    <RouterView></RouterView>
   </div>
 </template>
 
