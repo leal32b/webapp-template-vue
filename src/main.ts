@@ -3,14 +3,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import '@/style.scss'
 import App from '@/app.vue'
-import HelloWorldVue from '@/components/HelloWorld.vue'
+// import HelloWorldVue from '@/components/HelloWorld.vue'
 // import { setIcons } from '@/components/set-icons'
 
 const app = createApp(App)
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: HelloWorldVue }
+    { path: '/', component: async () => await import('@/components/HelloWorld.vue') }
   ]
 })
 

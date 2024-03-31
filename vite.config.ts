@@ -4,14 +4,19 @@
 import {resolve} from 'path'
 
 import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
+import { visualizer } from 'rollup-plugin-visualizer'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
 //@ts-ignore
 const root = resolve(__dirname)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    visualizer(),
+    splitVendorChunkPlugin()
+  ],
   test: {
     environment: 'happy-dom',
     root: '.',
@@ -42,5 +47,9 @@ export default defineConfig({
       '@': resolve(root, 'src'),
       '~': resolve(root, 'test')
     }
+  },
+  build: {
+    minify: true,
+    modulePreload: false
   }
 })
