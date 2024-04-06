@@ -2,7 +2,7 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: 'AppNavbar',
+  name: 'NavbarComponent',
   data() {
     return {
       theme: ref(document.documentElement.getAttribute('data-theme') || 'dark')
@@ -20,9 +20,6 @@ export default defineComponent({
 <template>
   <nav>
     <ul>
-      <li>
-        <img src="../assets/vue.svg">
-      </li>
       <li>
         <v-icon name="fa-bars" scale="1.5"/>
       </li>

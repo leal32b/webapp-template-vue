@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'HelloWorld',
+  name: 'LandingPage',
   props: {
     msg: {
       type: String,

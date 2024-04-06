@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/common/2.presentation/pages/landing.page.vue'
 
-describe('HelloWorld', () => {
+describe('LandingPage', () => {
   it('should display header text', async () => {
     const msg = 'Hello Vue 3'
     const wrapper = mount(HelloWorld, { props: { msg } })
