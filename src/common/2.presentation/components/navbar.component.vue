@@ -18,31 +18,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li>
-        <router-link to="/">
-          <img src="../assets/vue.svg"/>
-        </router-link>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <a href="#">Sign in</a>
-      </li>
-      <li>
-        <router-link to="/sign-up">
-          <button class="outline">Sign up</button>
-        </router-link>
-      </li>
-      <li>
-        <a @click="toggleTheme">
-          <v-icon :name="theme === 'dark' ? 'gi-moon' : 'gi-sun'" scale="1.5"/>
-          theme
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div></div>
 </template>
 
 <style scoped>
