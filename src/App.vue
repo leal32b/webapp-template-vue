@@ -20,9 +20,9 @@ export default defineComponent({
 </template>
 
 <style>
-  #app {
+  /* #app {
     min-height: 100vh;
-  }
+  } */
   .container {
     margin-top: 5rem;
   }

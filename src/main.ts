@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 
-import '@/common/4.main/style.scss'
+import '@/style.scss'
 import { setIcons } from '@/common/4.main/setup/set-icons'
 import { setRouter } from '@/common/4.main/setup/set-router'
 
-import App from '@/app.vue'
+import App from '@/App.vue'
 
 const app = createApp(App)
 

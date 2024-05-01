@@ -21,7 +21,9 @@ export default defineComponent({
   <nav>
     <ul>
       <li>
-        <v-icon name="fa-bars" scale="1.5"/>
+        <router-link to="/">
+          <img src="../assets/vue.svg"/>
+        </router-link>
       </li>
     </ul>
     <ul>
@@ -29,7 +31,9 @@ export default defineComponent({
         <a href="#">Sign in</a>
       </li>
       <li>
-        <button class="outline">Sign up</button>
+        <router-link to="/sign-up">
+          <button class="outline">Sign up</button>
+        </router-link>
       </li>
       <li>
         <a @click="toggleTheme">
@@ -45,7 +49,7 @@ export default defineComponent({
 nav {
   padding: 0 1.5rem;
   overflow: hidden;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   width: 100%;
   height: 3rem;
