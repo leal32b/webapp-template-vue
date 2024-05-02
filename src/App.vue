@@ -1,19 +1,10 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script lang="ts" setup>
 import NavbarComponent from '@/common/2.presentation/layout/navbar.component.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    NavbarComponent,
-  }
-})
 </script>
 
 <template>
   <NavbarComponent></NavbarComponent>
-  <!-- <Sidebar></Sidebar> -->
+  <!-- <SidebarComponent></SidebarComponent> -->
   <RouterView></RouterView>
 </template>
 

@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
 
-import landingPage from '@/common/2.presentation/pages/landing.page.vue'
+import LandingPage from '@/common/2.presentation/pages/landing.page.vue'
 
 describe('LandingPage', () => {
-  it('should display header text', async () => {
-    const wrapper = mount(landingPage)
+  it('displays header text', async () => {
+    const wrapper = mount(LandingPage)
 
     expect(wrapper.find('h1').text()).toEqual('Landing page')
   })

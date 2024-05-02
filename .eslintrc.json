@@ -21,15 +21,16 @@
       "groups": ["builtin", "external", "parent", "internal", "sibling", "index"],
       "newlines-between": "always",
       "pathGroups": [{ "pattern": "@/common/**", "group": "parent" }, { "pattern": "@/**", "group": "internal" }]
-      }]
-    },
-    "overrides": [{
-      "files": ["{src,test}/**/*.ts"],
-      "extends": ["standard-with-typescript"],
-      "rules": {
-        "@typescript-eslint/no-unsafe-argument": "off",
-        "@typescript-eslint/triple-slash-reference": "off"
-      }
+      }],
+    "vue/multi-word-component-names": "off"
+  },
+  "overrides": [{
+    "files": ["{src,test}/**/*.ts"],
+    "extends": ["standard-with-typescript"],
+    "rules": {
+      "@typescript-eslint/no-unsafe-argument": "off",
+      "@typescript-eslint/triple-slash-reference": "off"
+    }
   }],
   "ignorePatterns": [
     "coverage",

@@ -2,7 +2,7 @@ import { Quasar } from 'quasar'
 import { createApp } from 'vue'
 
 import '@/quasar.scss'
-import App from '@/app.vue'
+import App from '@/App.vue'
 import Router from '@/router'
 
 const app = createApp(App)

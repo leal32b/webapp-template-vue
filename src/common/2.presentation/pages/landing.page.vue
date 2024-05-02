@@ -1,15 +1,4 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'LandingPage',
-  props: {
-    msg: {
-      type: String,
-      default: ''
-    }
-  }
-})
+<script lang="ts" setup>
 </script>
 
 <template>

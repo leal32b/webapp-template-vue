@@ -1,20 +1,11 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { useQuasar } from 'quasar'
-import { defineComponent  } from 'vue'
 
-export default defineComponent({
-  name: 'NavbarComponent',
-  setup () {
-    return {
-      q: useQuasar()
-    }
-  },
-  methods: {
-    toggle() {
-      this.q.dark.toggle()
-    }
-  }
-})
+const q = useQuasar()
+
+const toggle = () => {
+  q.dark.toggle()
+}
 </script>
 
 <template>
