@@ -32,7 +32,7 @@ export default defineConfig({
       all: true,
       include: ['src/**/*.{ts,vue}'],
       exclude: [
-        'src/App.vue',
+        'src/app.vue',
         'src/main.ts'
       ],
       provider: 'istanbul',

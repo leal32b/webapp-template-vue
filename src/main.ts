@@ -1,11 +1,13 @@
+import { Quasar } from 'quasar'
 import { createApp } from 'vue'
 
-import { setRouter } from '@/common/4.main/setup/set-router'
-
-import App from '@/App.vue'
+import '@/quasar.scss'
+import App from '@/app.vue'
+import Router from '@/router'
 
 const app = createApp(App)
 
-setRouter(app)
-
-app.mount('#app')
+app
+  .use(Router)
+  .use(Quasar, { config: { dark: true } })
+  .mount('#app')
