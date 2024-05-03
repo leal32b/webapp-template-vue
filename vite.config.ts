@@ -33,7 +33,8 @@ export default defineConfig({
       include: ['src/**/*.{ts,vue}'],
       exclude: [
         'src/app.vue',
-        'src/main.ts'
+        'src/main.ts',
+        'src/**/*.routes.ts'
       ],
       provider: 'istanbul',
       reporter: ['text-summary', 'html', 'lcov'],
