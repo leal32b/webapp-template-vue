@@ -34,6 +34,7 @@ export default defineConfig({
       exclude: [
         'src/app.vue',
         'src/main.ts',
+        'src/set-directives.ts',
         'src/**/*.routes.ts'
       ],
       provider: 'istanbul',

@@ -5,6 +5,7 @@
   "editor.detectIndentation": false,
   "cSpell.words": [
     "Composables",
+    "unstub",
     "vuex"
   ]
 }
