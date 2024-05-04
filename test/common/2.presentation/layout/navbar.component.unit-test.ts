@@ -1,23 +1,41 @@
 import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-vitest'
-import { mount } from '@vue/test-utils'
+import { type Component } from 'vue'
 
 import NavbarComponent from '@/common/2.presentation/layout/navbar.component.vue'
 
+import { mount } from '~/mount.decorator'
+
 installQuasarPlugin()
 
-describe('NavbarComponent', () => {
-  it('displays app name', async () => {
-    const wrapper = mount(NavbarComponent)
+type SutTypes = {
+  sut: Component
+}
 
-    expect(wrapper.find('div').text()).toContain('Webapp template Vue')
+const makeSut = (): SutTypes => {
+  const sut = NavbarComponent
+
+  return {
+    sut
+  }
+}
+
+describe('NavbarComponent', () => {
+  it('displays navbar title', async () => {
+    const { sut } = makeSut()
+    const wrapper = mount(sut)
+
+    const navbarTitle = wrapper.find('.navbar-title')
+
+    expect(navbarTitle.text()).toContain('Webapp template Vue')
   })
 
-  it('toggles to light mode', async () => {
-    const wrapper = mount(NavbarComponent)
+  it('toggles light and dark modes', async () => {
+    const { sut } = makeSut()
+    const wrapper = mount(sut)
 
     expect(wrapper.vm.$q.dark.isActive).toBe(false)
 
-    const button = wrapper.find('#btn-toggle')
+    const button = wrapper.find('.btn-toggle')
     await button.trigger('click')
 
     expect(wrapper.vm.$q.dark.isActive).toBe(true)
