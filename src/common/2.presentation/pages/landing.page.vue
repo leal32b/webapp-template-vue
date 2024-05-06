@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <h1>Landing page</h1>
+    <h1>{{ $t($m.landingPage.hello) }}</h1>
   </div>
 </template>
 

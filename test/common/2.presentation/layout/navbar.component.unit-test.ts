@@ -23,7 +23,6 @@ describe('NavbarComponent', () => {
   it('displays navbar title', async () => {
     const { sut } = makeSut()
     const wrapper = mount(sut)
-
     const navbarTitle = wrapper.find('.navbar-title')
 
     expect(navbarTitle.text()).toContain('Webapp template Vue')

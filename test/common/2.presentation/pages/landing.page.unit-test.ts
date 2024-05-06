@@ -19,9 +19,8 @@ const makeSut = (): SutTypes => {
 describe('LandingPage', () => {
   it('displays header text', async () => {
     const { sut } = makeSut()
-
     const wrapper = mount(sut)
 
-    expect(wrapper.find('h1').text()).toEqual('Landing page')
+    expect(wrapper.find('h1').text()).toEqual('Hello world')
   })
 })
