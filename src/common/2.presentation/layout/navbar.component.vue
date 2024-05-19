@@ -1,26 +1,23 @@
 <script lang="ts" setup>
-import { useQuasar } from 'quasar'
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 
-const $q = useQuasar()
-const { locale } = useI18n({ useScope: 'global' })
+// const { locale } = useI18n({ useScope: 'global' })
 
-const locales = [
-  { key: 'en-US', name: 'English' },
-  { key: 'pt-BR', name: 'Português' }
-]
+// const locales = [
+//   { key: 'en-US', name: 'English' },
+//   { key: 'pt-BR', name: 'Português' }
+// ]
 
-const toggle = () => {
-  $q.dark.toggle()
-}
+// const toggle = () => {
+// }
 
-const setLocale = (value: string) => {
-  locale.value = value
-}
+// const setLocale = (value: string) => {
+//   locale.value = value
+// }
 </script>
 
 <template>
-  <q-toolbar>
+  <!-- <q-toolbar>
     <q-btn flat round dense icon="eva-menu" class="q-mr-sm" />
     <RouterLink to="/">
       <q-avatar>
@@ -44,19 +41,9 @@ const setLocale = (value: string) => {
         </q-list>
       </q-menu>
     </q-btn>
-  </q-toolbar>
+  </q-toolbar> -->
+  <div></div>
 </template>
 
 <style scoped>
-a {
-  color: inherit;
-}
-
-img {
-  height: 1.5rem;
-}
-
-.q-icon::after {
-  background-color: red !important;
-}
 </style>

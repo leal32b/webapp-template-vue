@@ -1,8 +1,5 @@
-import { type ComponentMountingOptions, type VueWrapper } from '@vue/test-utils'
-import { mount as vueMount } from '@vue/test-utils'
+import { mount as vueMount, type ComponentMountingOptions, type VueWrapper } from '@vue/test-utils'
 import { type Component } from 'vue'
-
-import '@/quasar.scss'
 
 import { TestDirective } from '@/common/0.domain/directives/test.directive'
 

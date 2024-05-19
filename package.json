@@ -17,15 +17,11 @@
     "test:ci": "vitest --coverage"
   },
   "dependencies": {
-    "@quasar/extras": "^1.16.11",
-    "quasar": "^2.15.4",
     "vue": "^3.4.21",
     "vue-i18n": "^9.13.1",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@quasar/quasar-app-extension-testing-unit-vitest": "^1.0.0",
-    "@quasar/vite-plugin": "^1.6.0",
     "@types/node": "^20.12.8",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@vitejs/plugin-vue": "^5.0.4",
