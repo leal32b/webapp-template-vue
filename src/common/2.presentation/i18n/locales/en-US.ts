@@ -6,6 +6,10 @@ export const enUS = {
       },
       landingPage: {
         hello: 'Hello world'
+      },
+      navbar: {
+        signUp: 'Sign up',
+        signIn: 'Sign in'
       }
     }
   }

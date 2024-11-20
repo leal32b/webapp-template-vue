@@ -8,6 +8,10 @@ export const ptBR: LocaleSchema = {
       },
       landingPage: {
         hello: 'Olá mundo'
+      },
+      navbar: {
+        signUp: 'Inscrever-se',
+        signIn: 'Entrar'
       }
     }
   }
