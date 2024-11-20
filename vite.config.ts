@@ -53,5 +53,12 @@ export default defineConfig({
   build: {
     minify: true,
     modulePreload: false
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true
+      }
+    }
   }
 })
