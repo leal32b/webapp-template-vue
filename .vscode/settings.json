@@ -4,7 +4,10 @@
   },
   "editor.detectIndentation": false,
   "cSpell.words": [
+    "bulma",
+    "Bulma's",
     "Composables",
+    "minireset",
     "unstub",
     "vuex"
   ]

@@ -17,6 +17,7 @@
     "test:ci": "vitest --coverage"
   },
   "dependencies": {
+    "bulma": "^1.0.2",
     "vue": "^3.4.21",
     "vue-i18n": "^9.13.1",
     "vue-router": "^4.3.2"

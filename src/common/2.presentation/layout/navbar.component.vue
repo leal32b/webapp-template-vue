@@ -1,49 +1,120 @@
 <script lang="ts" setup>
-// import { useI18n } from 'vue-i18n';
+import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-// const { locale } = useI18n({ useScope: 'global' })
+const { locale } = useI18n({ useScope: 'global' });
 
-// const locales = [
-//   { key: 'en-US', name: 'English' },
-//   { key: 'pt-BR', name: 'Português' }
-// ]
+const locales = [
+  { key: 'en-US', name: 'English' },
+  { key: 'pt-BR', name: 'Português' },
+];
 
-// const toggle = () => {
-// }
+const currentTheme = ref<'light' | 'dark'>('light')
+const isLanguageDropdownOpen = ref(false)
+const isMenuOpen = ref(false)
 
-// const setLocale = (value: string) => {
-//   locale.value = value
-// }
+const toggleTheme = () => {
+  currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme.value);
+}
+
+const toggleLanguageDropdown = () => {
+  isLanguageDropdownOpen.value = !isLanguageDropdownOpen.value
+}
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+const setLocale = (value: string) => {
+  locale.value = value
+  toggleLanguageDropdown()
+}
+
+onMounted(() => {
+  currentTheme.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme.value);
+});
 </script>
 
 <template>
-  <!-- <q-toolbar>
-    <q-btn flat round dense icon="eva-menu" class="q-mr-sm" />
-    <RouterLink to="/">
-      <q-avatar>
-        <img src="../assets/vue.svg">
-      </q-avatar>
-    </RouterLink>
-    <q-toolbar-title v-test="'navbar-title'">{{ $t($m.common.appName) }}</q-toolbar-title>
-    <RouterLink to="">
-      <q-btn flat class="q-mr-sm">Sign in</q-btn>
-    </RouterLink>
-    <RouterLink to="/sign-up">
-      <q-btn outline class="q-mr-sm" id="btn-sign-up">Sign up</q-btn>
-    </RouterLink>
-    <q-btn flat round dense :icon="$q.dark.isActive ? 'eva-moon-outline' : 'eva-sun-outline'" class="q-mr-sm" @click="toggle" v-test="'btn-toggle'" />
-    <q-btn flat round icon="eva-globe-outline" v-test="'btn-locale'">
-      <q-menu no-shadow>
-        <q-list>
-          <q-item clickable v-close-popup v-for="locale in locales" :key="locale.key">
-            <q-item-section @click="setLocale(locale.key)" v-test="locale.key">{{locale.name}}</q-item-section>
-          </q-item>
-        </q-list>
-      </q-menu>
-    </q-btn>
-  </q-toolbar> -->
-  <div></div>
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <!-- Brand logo -->
+      <RouterLink to="/">
+        <a class="navbar-item">
+          <img src="../assets/vue.svg">
+        </a>
+      </RouterLink>
+      <button
+        class="button navbar-burger"
+        aria-label="menu"
+        @click="toggleMenu"
+      >
+        Menu
+      </button>
+    </div>
+
+    <div
+      class="navbar-menu"
+      :class="{ 'is-active': isMenuOpen }"
+    >
+      <div class="navbar-start"></div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <!-- Language dropdown -->
+            <div class="dropdown" :class="{ 'is-active': isLanguageDropdownOpen }">
+              <div class="dropdown-trigger">
+                <button
+                  class="button"
+                  @click="toggleLanguageDropdown"
+                >
+                  <span class="icon">
+                    <i class="fas fa-language"></i>
+                    lang
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                  <a
+                    href="#"
+                    class="dropdown-item"
+                    v-for="locale in locales"
+                    :key="locale.key"
+                    @click.prevent="setLocale(locale.key)"
+                  >
+                    {{ locale.name }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Theme toggle -->
+            <button class="button" @click="toggleTheme">
+              <span class="icon">
+                <i class="fas" :class="currentTheme === 'light' ? 'fa-sun' : 'fa-moon'"></i>
+                {{ currentTheme }}
+              </span>
+            </button>
+            <!-- Buttons -->
+            <RouterLink to="/sign-up">
+              <a class="button">
+                {{ $t($m.navbar.signUp) }}
+              </a>
+            </RouterLink>
+            <RouterLink to="">
+            <a class="button is-link">
+              {{ $t($m.navbar.signIn) }}
+            </a>
+          </RouterLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
-<style scoped>
-</style>
+<!-- <style scoped></style> -->
