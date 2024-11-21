@@ -4,12 +4,16 @@ import { type Component } from 'vue'
 import { TestDirective } from '@/common/0.domain/directives/test.directive'
 
 import { i18n, messageKeys } from '@/i18n'
+import router from '@/router'
 
 export const mount = (component: Component, options: ComponentMountingOptions<any> = {}): VueWrapper<any> => {
   return vueMount(component, {
     global: {
       ...options,
-      plugins: [i18n],
+      plugins: [
+        i18n,
+        router
+      ],
       config: {
         ...options?.global?.config,
         globalProperties: {

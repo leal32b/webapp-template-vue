@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const { locale } = useI18n({ useScope: 'global' });
+const { locale } = useI18n({ useScope: 'global' })
 
 const locales = [
   { key: 'en-US', name: 'English' },
-  { key: 'pt-BR', name: 'Português' },
-];
+  { key: 'pt-BR', name: 'Português' }
+]
 
 const currentTheme = ref<'light' | 'dark'>('light')
 const isLanguageDropdownOpen = ref(false)
 const isMenuOpen = ref(false)
 
 const toggleTheme = () => {
-  currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', currentTheme.value);
+  currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', currentTheme.value)
 }
 
 const toggleLanguageDropdown = () => {
@@ -34,9 +34,9 @@ const setLocale = (value: string) => {
 onMounted(() => {
   currentTheme.value = window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
-    : 'light';
-  document.documentElement.setAttribute('data-theme', currentTheme.value);
-});
+    : 'light'
+  document.documentElement.setAttribute('data-theme', currentTheme.value)
+})
 </script>
 
 <template>
@@ -48,10 +48,12 @@ onMounted(() => {
           <img src="../assets/vue.svg">
         </a>
       </RouterLink>
+      <!-- Menu button -->
       <button
         class="button navbar-burger"
         aria-label="menu"
         @click="toggleMenu"
+        v-test="'button-menu'"
       >
         Menu
       </button>
@@ -60,13 +62,14 @@ onMounted(() => {
     <div
       class="navbar-menu"
       :class="{ 'is-active': isMenuOpen }"
+      v-test="'menu'"
     >
       <div class="navbar-start"></div>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <!-- Language dropdown -->
-            <div class="dropdown" :class="{ 'is-active': isLanguageDropdownOpen }">
+            <div class="dropdown" :class="{ 'is-active': isLanguageDropdownOpen }" v-test="'dropdown-language'">
               <div class="dropdown-trigger">
                 <button
                   class="button"
@@ -86,6 +89,7 @@ onMounted(() => {
                     v-for="locale in locales"
                     :key="locale.key"
                     @click.prevent="setLocale(locale.key)"
+                    v-test="'button-' + locale.key"
                   >
                     {{ locale.name }}
                   </a>
@@ -93,7 +97,7 @@ onMounted(() => {
               </div>
             </div>
             <!-- Theme toggle -->
-            <button class="button" @click="toggleTheme">
+            <button class="button" @click="toggleTheme" v-test="'button-toggle-theme'">
               <span class="icon">
                 <i class="fas" :class="currentTheme === 'light' ? 'fa-sun' : 'fa-moon'"></i>
                 {{ currentTheme }}
