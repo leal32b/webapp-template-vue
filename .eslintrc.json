@@ -4,37 +4,33 @@
     "es2021": true
   },
   "extends": [
-    "plugin:vue/vue3-essential"
+    "standard-with-typescript",
+    "plugin:vue/vue3-recommended"
   ],
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".vue"]
   },
-  "plugins": [
-    "vue"
-  ],
+  "plugins": ["vue"],
   "rules": {
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/triple-slash-reference": "off",
     "import/order": ["error", {
       "alphabetize": { "order": "asc", "caseInsensitive": true },
       "groups": ["builtin", "external", "parent", "internal", "sibling", "index"],
       "newlines-between": "always",
       "pathGroups": [{ "pattern": "@/common/**", "group": "parent" }, { "pattern": "@/**", "group": "internal" }]
-      }],
-      "vue/multi-word-component-names": "off"
-    },
-    "overrides": [{
-      "files": ["{src,test}/**/*.ts"],
-      "extends": ["standard-with-typescript"],
-      "rules": {
-      "@typescript-eslint/consistent-type-definitions": "off",
-      "@typescript-eslint/no-unsafe-argument": "off",
-      "@typescript-eslint/triple-slash-reference": "off"
-    }
-  }],
+    }],
+    "vue/multi-word-component-names": "off"
+  },
   "ignorePatterns": [
     "coverage",
     "dist",
-    "node_modules"
+    "node_modules",
+    "vite.config.ts"
   ]
 }

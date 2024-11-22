@@ -13,20 +13,20 @@ const currentTheme = ref<'light' | 'dark'>('light')
 const isLanguageDropdownOpen = ref(false)
 const isMenuOpen = ref(false)
 
-const toggleTheme = () => {
+const toggleTheme = (): void => {
   currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light'
   document.documentElement.setAttribute('data-theme', currentTheme.value)
 }
 
-const toggleLanguageDropdown = () => {
+const toggleLanguageDropdown = (): void => {
   isLanguageDropdownOpen.value = !isLanguageDropdownOpen.value
 }
 
-const toggleMenu = () => {
+const toggleMenu = (): void => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-const setLocale = (value: string) => {
+const setLocale = (value: string): void => {
   locale.value = value
   toggleLanguageDropdown()
 }
@@ -40,7 +40,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav class="navbar" role="navigation">
+  <nav
+    class="navbar"
+    role="navigation"
+  >
     <div class="navbar-brand">
       <!-- Brand logo -->
       <RouterLink to="/">
@@ -50,56 +53,70 @@ onMounted(() => {
       </RouterLink>
       <!-- Menu button -->
       <button
+        v-test="'button-menu'"
         class="button navbar-burger"
         aria-label="menu"
         @click="toggleMenu"
-        v-test="'button-menu'"
       >
         Menu
       </button>
     </div>
 
     <div
+      v-test="'menu'"
       class="navbar-menu"
       :class="{ 'is-active': isMenuOpen }"
-      v-test="'menu'"
     >
-      <div class="navbar-start"></div>
+      <div class="navbar-start" />
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <!-- Language dropdown -->
-            <div class="dropdown" :class="{ 'is-active': isLanguageDropdownOpen }" v-test="'dropdown-language'">
+            <div
+              v-test="'dropdown-language'"
+              class="dropdown"
+              :class="{ 'is-active': isLanguageDropdownOpen }"
+            >
               <div class="dropdown-trigger">
                 <button
                   class="button"
                   @click="toggleLanguageDropdown"
                 >
                   <span class="icon">
-                    <i class="fas fa-language"></i>
+                    <i class="fas fa-language" />
                     lang
                   </span>
                 </button>
               </div>
-              <div class="dropdown-menu" role="menu">
+              <div
+                class="dropdown-menu"
+                role="menu"
+              >
                 <div class="dropdown-content">
                   <a
+                    v-for="loc in locales"
+                    :key="loc.key"
+                    v-test="'button-' + loc.key"
                     href="#"
                     class="dropdown-item"
-                    v-for="locale in locales"
-                    :key="locale.key"
-                    @click.prevent="setLocale(locale.key)"
-                    v-test="'button-' + locale.key"
+                    @click.prevent="setLocale(loc.key)"
                   >
-                    {{ locale.name }}
+                    {{ loc.name }}
                   </a>
                 </div>
               </div>
             </div>
             <!-- Theme toggle -->
-            <button class="button" @click="toggleTheme" v-test="'button-toggle-theme'">
+            <button
+              v-test="'button-toggle-theme'"
+              class="button"
+              @click="toggleTheme"
+            >
               <span class="icon">
-                <i class="fas" :class="currentTheme === 'light' ? 'fa-sun' : 'fa-moon'"></i>
+                <i
+                  class="fas"
+                  :class="currentTheme === 'light' ? 'fa-sun' : 'fa-moon'"
+                />
                 {{ currentTheme }}
               </span>
             </button>
@@ -110,10 +127,10 @@ onMounted(() => {
               </a>
             </RouterLink>
             <RouterLink to="">
-            <a class="button is-link">
-              {{ $t($m.navbar.signIn) }}
-            </a>
-          </RouterLink>
+              <a class="button is-link">
+                {{ $t($m.navbar.signIn) }}
+              </a>
+            </RouterLink>
           </div>
         </div>
       </div>
