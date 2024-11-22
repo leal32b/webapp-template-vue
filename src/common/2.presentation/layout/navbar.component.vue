@@ -83,8 +83,7 @@ onMounted(() => {
                   @click="toggleLanguageDropdown"
                 >
                   <span class="icon">
-                    <i class="fas fa-language" />
-                    lang
+                    <LanguageIcon />
                   </span>
                 </button>
               </div>
@@ -113,11 +112,8 @@ onMounted(() => {
               @click="toggleTheme"
             >
               <span class="icon">
-                <i
-                  class="fas"
-                  :class="currentTheme === 'light' ? 'fa-sun' : 'fa-moon'"
-                />
-                {{ currentTheme }}
+                <SunIcon v-if="currentTheme === 'light'" />
+                <MoonIcon v-if="currentTheme === 'dark'" />
               </span>
             </button>
             <!-- Buttons -->

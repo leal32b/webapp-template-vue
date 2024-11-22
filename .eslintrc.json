@@ -18,6 +18,7 @@
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/triple-slash-reference": "off",
     "import/order": ["error", {
       "alphabetize": { "order": "asc", "caseInsensitive": true },
