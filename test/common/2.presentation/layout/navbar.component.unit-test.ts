@@ -1,11 +1,8 @@
-import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-vitest'
 import { type Component } from 'vue'
 
 import NavbarComponent from '@/common/2.presentation/layout/navbar.component.vue'
 
 import { mount } from '~/mount.decorator'
-
-installQuasarPlugin()
 
 type SutTypes = {
   sut: Component
@@ -20,28 +17,52 @@ const makeSut = (): SutTypes => {
 }
 
 describe('NavbarComponent', () => {
-  it('displays navbar title', async () => {
+  it('sets theme to dark based on browser preferences', async () => {
     const { sut } = makeSut()
+    vi.spyOn(window, 'matchMedia').mockImplementationOnce(() => ({
+      matches: true
+    } as any))
     const wrapper = mount(sut)
 
-    const navbarTitle = wrapper.find('.navbar-title')
-
-    expect(navbarTitle.text()).toContain('Webapp template Vue')
+    expect(wrapper.vm.currentTheme).toBe('dark')
   })
 
-  it('toggles light and dark modes', async () => {
+  it('toggles theme', async () => {
     const { sut } = makeSut()
     const wrapper = mount(sut)
+    const themeButton = wrapper.find('.button-toggle-theme')
 
-    expect(wrapper.vm.$q.dark.isActive).toBe(false)
+    expect(wrapper.vm.currentTheme).toBe('light')
 
-    const button = wrapper.find('.btn-toggle')
-    await button.trigger('click')
+    await themeButton.trigger('click')
+    expect(wrapper.vm.currentTheme).toBe('dark')
 
-    expect(wrapper.vm.$q.dark.isActive).toBe(true)
+    await themeButton.trigger('click')
+    expect(wrapper.vm.currentTheme).toBe('light')
+  })
 
-    await button.trigger('click')
+  it('toggles language', async () => {
+    const { sut } = makeSut()
+    const wrapper = mount(sut)
+    const dropdownButton = wrapper.find('.dropdown-language')
+    const portugueseButton = wrapper.find('.button-pt-BR')
 
-    expect(wrapper.vm.$q.dark.isActive).toBe(false)
+    expect(wrapper.vm.locale).toBe('en-US')
+
+    await dropdownButton.trigger('click')
+    await portugueseButton.trigger('click')
+    expect(wrapper.vm.locale).toBe('pt-BR')
+  })
+
+  it('toggles menu', async () => {
+    const { sut } = makeSut()
+    const wrapper = mount(sut)
+    const menuButton = wrapper.find('.button-menu')
+    const menu = wrapper.find('.menu')
+
+    expect(menu.classes()).not.contain('is-active')
+
+    await menuButton.trigger('click')
+    expect(menu.classes()).contain('is-active')
   })
 })

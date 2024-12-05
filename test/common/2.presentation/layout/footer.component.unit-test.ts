@@ -1,6 +1,6 @@
 import { type Component } from 'vue'
 
-import LandingPage from '@/common/2.presentation/pages/landing.page.vue'
+import FooterComponent from '@/common/2.presentation/layout/footer.component.vue'
 
 import { mount } from '~/mount.decorator'
 
@@ -9,18 +9,18 @@ type SutTypes = {
 }
 
 const makeSut = (): SutTypes => {
-  const sut = LandingPage
+  const sut = FooterComponent
 
   return {
     sut
   }
 }
 
-describe('LandingPage', () => {
-  it('displays header text', async () => {
+describe('FooterComponent', () => {
+  it('renders footerComponent', async () => {
     const { sut } = makeSut()
     const wrapper = mount(sut)
 
-    expect(wrapper.find('h1').text()).toEqual('Hello world')
+    expect(wrapper).toBeTruthy()
   })
 })

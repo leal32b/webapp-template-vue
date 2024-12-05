@@ -3,7 +3,6 @@
 //@ts-ignore
 import { fileURLToPath, URL } from 'node:url'
 
-import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
@@ -12,11 +11,8 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/webapp-template-vue/' : '/',
   plugins: [
-    vue({      
-      template: { transformAssetUrls }    
-    }),
-    visualizer(),
-    quasar()
+    vue(),
+    visualizer()
   ],
   test: {
     environment: 'happy-dom',
@@ -34,17 +30,16 @@ export default defineConfig({
       include: ['src/**/*.{ts,vue}'],
       exclude: [
         'src/app.vue',
+        'src/directives.ts',
+        'src/i18n.ts',
+        'src/icons.ts',
         'src/main.ts',
-        'src/set-directives.ts',
         'src/**/*.routes.ts'
       ],
       provider: 'istanbul',
       reporter: ['text-summary', 'html', 'lcov'],
       thresholds: {
-        branches: 100,
-        functions: 100,
-        lines: 100,
-        statements: 100
+        100: true
       }
     }
   },
@@ -57,5 +52,12 @@ export default defineConfig({
   build: {
     minify: true,
     modulePreload: false
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        quietDeps: true
+      }
+    }
   }
 })
