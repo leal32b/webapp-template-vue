@@ -1,10 +1,8 @@
-/// <reference types="vite/client" />
-
-import { type MessageType } from '@/common/2.presentation/i18n/locales/en-US'
+import { type MessagesType } from '@/i18n'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
-    $m: MessageType
-    $t: (key: string) => string
+    $m: MessagesType
+    $t: (key: string, params?: Record<string, string>) => string
   }
 }

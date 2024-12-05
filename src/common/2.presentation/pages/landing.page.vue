@@ -3,7 +3,9 @@
 
 <template>
   <div>
-    <h1 class="is-size-1">{{ $t($m.landingPage.hello) }}</h1>
+    <h1 class="is-size-1">
+      {{ $t($m.common.landingPage.hello) }}
+    </h1>
   </div>
 </template>
 

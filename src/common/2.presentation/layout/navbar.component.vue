@@ -51,14 +51,20 @@ onMounted(() => {
           <img src="../assets/vue.svg">
         </a>
       </RouterLink>
-      <!-- Menu button -->
       <button
         v-test="'button-menu'"
-        class="button navbar-burger"
+        role="button"
+        class="navbar-burger"
         aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+        :class="{ 'is-active': isMenuOpen }"
         @click="toggleMenu"
       >
-        Menu
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
       </button>
     </div>
 
@@ -70,7 +76,7 @@ onMounted(() => {
       <div class="navbar-start" />
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
+          <div class="buttons is-right">
             <!-- Language dropdown -->
             <div
               v-test="'dropdown-language'"
@@ -119,12 +125,12 @@ onMounted(() => {
             <!-- Buttons -->
             <RouterLink to="/sign-up">
               <a class="button">
-                {{ $t($m.navbar.signUp) }}
+                {{ $t($m.common.navbar.signUp) }}
               </a>
             </RouterLink>
             <RouterLink to="">
               <a class="button is-link">
-                {{ $t($m.navbar.signIn) }}
+                {{ $t($m.common.navbar.signIn) }}
               </a>
             </RouterLink>
           </div>
@@ -134,4 +140,9 @@ onMounted(() => {
   </nav>
 </template>
 
-<!-- <style scoped></style> -->
+<style scoped>
+  .navbar-burger {
+    color: var(--bulma-current-color);
+    background-color: unset;
+  }
+</style>

@@ -3,7 +3,9 @@
 
 <template>
   <div>
-    <h1>Sign up page</h1>
+    <h1 class="is-size-1">
+      {{ $t($m.identity.signUpPage.title) }}
+    </h1>
   </div>
 </template>
 

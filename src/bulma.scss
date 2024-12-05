@@ -70,7 +70,7 @@
 // Layout
 // @use "bulma/sass/layout";
 // @use "bulma/sass/layout/container";
-// @use "bulma/sass/layout/footer";
+@use "bulma/sass/layout/footer";
 // @use "bulma/sass/layout/hero";
 // @use "bulma/sass/layout/level";
 // @use "bulma/sass/layout/media";
@@ -90,3 +90,9 @@
 // @use "bulma/sass/helpers/spacing";
 @use "bulma/sass/helpers/typography";
 // @use "bulma/sass/helpers/visibility";
+
+:root {
+  a, button {
+    border: none !important;
+  }
+}

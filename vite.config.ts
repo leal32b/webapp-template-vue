@@ -30,9 +30,10 @@ export default defineConfig({
       include: ['src/**/*.{ts,vue}'],
       exclude: [
         'src/app.vue',
+        'src/directives.ts',
         'src/i18n.ts',
+        'src/icons.ts',
         'src/main.ts',
-        'src/set-directives.ts',
         'src/**/*.routes.ts'
       ],
       provider: 'istanbul',

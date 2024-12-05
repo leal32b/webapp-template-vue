@@ -45,12 +45,12 @@ describe('NavbarComponent', () => {
     const { sut } = makeSut()
     const wrapper = mount(sut)
     const dropdownButton = wrapper.find('.dropdown-language')
-    const portuguesButton = wrapper.find('.button-pt-BR')
+    const portugueseButton = wrapper.find('.button-pt-BR')
 
     expect(wrapper.vm.locale).toBe('en-US')
 
     await dropdownButton.trigger('click')
-    await portuguesButton.trigger('click')
+    await portugueseButton.trigger('click')
     expect(wrapper.vm.locale).toBe('pt-BR')
   })
 
