@@ -39,10 +39,7 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text-summary', 'html', 'lcov'],
       thresholds: {
-        branches: 100,
-        functions: 100,
-        lines: 100,
-        statements: 100
+        100: true
       }
     }
   },
