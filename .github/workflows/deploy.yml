@@ -22,6 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build webapp
+        env:
+          VITE_BASE: webapp-template-vue
         run: npm run build
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3

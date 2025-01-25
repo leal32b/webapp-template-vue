@@ -22,8 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build api
-        env:
-          VITE_BASE: webapp-template-vue
         run: npm run build
 
   test:
