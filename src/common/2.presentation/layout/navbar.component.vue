@@ -118,8 +118,8 @@ onMounted(() => {
               @click="toggleTheme"
             >
               <span class="icon">
-                <SunIcon v-if="currentTheme === 'light'" />
-                <MoonIcon v-if="currentTheme === 'dark'" />
+                <SunIcon v-if="currentTheme === 'dark'" />
+                <MoonIcon v-if="currentTheme === 'light'" />
               </span>
             </button>
             <!-- Buttons -->
