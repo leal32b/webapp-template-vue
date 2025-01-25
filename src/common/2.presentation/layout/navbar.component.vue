@@ -118,8 +118,8 @@ onMounted(() => {
               @click="toggleTheme"
             >
               <span class="icon">
-                <SunIcon v-if="currentTheme === 'light'" />
-                <MoonIcon v-if="currentTheme === 'dark'" />
+                <SunIcon v-if="currentTheme === 'dark'" />
+                <MoonIcon v-if="currentTheme === 'light'" />
               </span>
             </button>
             <!-- Buttons -->
@@ -128,7 +128,7 @@ onMounted(() => {
                 {{ $t($m.common.navbar.signUp) }}
               </a>
             </RouterLink>
-            <RouterLink to="">
+            <RouterLink to="/sign-in">
               <a class="button is-link">
                 {{ $t($m.common.navbar.signIn) }}
               </a>

@@ -1,6 +1,5 @@
 /// <reference types="vitest" />
 
-//@ts-ignore
 import { fileURLToPath, URL } from 'node:url'
 
 import vue from '@vitejs/plugin-vue'
@@ -38,9 +37,7 @@ export default defineConfig({
       ],
       provider: 'istanbul',
       reporter: ['text-summary', 'html', 'lcov'],
-      thresholds: {
-        100: true
-      }
+      thresholds: { 100: true }
     }
   },
   resolve: {
