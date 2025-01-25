@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+env:
+  NODE_ENV: 'staging'
+
 on:
   push:
     branches:
