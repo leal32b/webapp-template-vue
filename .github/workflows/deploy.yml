@@ -1,8 +1,5 @@
 name: Deploy to GitHub Pages
 
-env:
-  NODE_ENV: production
-
 on:
   push:
     branches:
@@ -25,6 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build webapp
+        env:
+          NODE_ENV: production
         run: npm run build
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,8 +1,5 @@
 name: Pull Request
 
-env:
-  NODE_ENV: staging
-
 on:
   pull_request:
     branches:
@@ -41,6 +38,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build api
+        env:
+          NODE_ENV: staging
         run: npm run build
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
