@@ -128,7 +128,7 @@ onMounted(() => {
                 {{ $t($m.common.navbar.signUp) }}
               </a>
             </RouterLink>
-            <RouterLink to="">
+            <RouterLink to="/sign-in">
               <a class="button is-link">
                 {{ $t($m.common.navbar.signIn) }}
               </a>
