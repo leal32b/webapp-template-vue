@@ -5,7 +5,7 @@ import { commonRoutes } from '@/common/2.presentation/routes/common.routes'
 import { identityRoutes } from '@/modules/identity/2.presentation/routes/identity.routes'
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(process.env.VITE_BASE_URL),
   routes: [
     ...commonRoutes,
     ...identityRoutes
