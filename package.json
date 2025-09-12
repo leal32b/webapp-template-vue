@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "engines": {
-    "node": "^20.11.0",
-    "npm": "^10.2.4"
+    "node": "^22.16.0",
+    "npm": "^10.9.2"
   },
   "type": "module",
   "scripts": {
@@ -24,9 +24,9 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@types/node": "^22.18.2",
+    "@types/node": "^24.3.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@vitejs/plugin-vue": "^5.2.4",
+    "@vitejs/plugin-vue": "^6.0.1",
     "@vitest/coverage-istanbul": "^3.2.4",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^8.57.1",
@@ -36,14 +36,14 @@
     "eslint-plugin-promise": "^6.6.0",
     "eslint-plugin-vue": "^9.33.0",
     "git-commit-msg-linter": "^5.0.8",
-    "happy-dom": "^16.8.1",
+    "happy-dom": "^18.0.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
-    "rollup-plugin-visualizer": "^5.14.0",
+    "lint-staged": "^16.1.6",
+    "rollup-plugin-visualizer": "^6.0.3",
     "sass": "^1.92.1",
     "typescript": "^5.9.2",
-    "vite": "^6.3.6",
+    "vite": "^7.1.5",
     "vitest": "^3.0.4",
-    "vue-tsc": "^2.2.12"
+    "vue-tsc": "^3.0.7"
   }
 }
